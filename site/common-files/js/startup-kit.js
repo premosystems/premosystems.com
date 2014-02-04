@@ -1097,6 +1097,7 @@ startupKit.uiKitFooter.footer15 = function() {};
             $(window).resize();
         });
 
+
         /* ie fix images */
         if (/msie/i.test(navigator.userAgent)) {
             $('img').each(function() {

@@ -45,9 +45,11 @@ var PageTransitions = function() {
     var $currPage = $pages.filter('.pt-page-current');
 
     if (page == 'prev') {
-      page = $currPage.index() - 1;
+        page = $currPage.index() - 1;
+        SetMyIndex(false);
     } else if (typeof(page) != 'number') {
-      page = $currPage.index() + 1;
+        page = $currPage.index() + 1;
+        SetMyIndex(true);
     }
 
     if (page < 0) {
@@ -382,6 +384,93 @@ var PageTransitions = function() {
     $outpage.attr('class', $outpage.data('originalClassList'));
     $inpage.attr('class', $inpage.data('originalClassList') + ' pt-page-current');
   }
+
+
+    /* Code added */
+  var myTimer;
+  $(window).load(function () {
+      myTimer = setInterval(function () { MySlideHeader01() }, 8000);
+  });
+ 
+
+  var Index = 1;
+  function SetMyIndex(Increment)
+  {
+      if (Increment)
+          Index++;
+      else
+          Index--;
+
+      var $main = $('#pt-main');
+      var $pages = $main.children('.pt-page');
+      var pagesCount = $pages.length;
+
+      if (Index == pagesCount + 1)
+          Index = 1;
+      else if (Index < 1)
+          Index = pagesCount;
+      
+  }
+  function MySlideHeader01() {
+      if (isAnimating) {
+          return false;
+      }
+      isAnimating = true;
+      
+      Index++;
+      var Old = Index - 1;
+
+      var $main = $('#pt-main');
+      var $pages = $main.children('.pt-page');
+      var pagesCount = $pages.length;
+
+      
+      if (Index == pagesCount + 1) {
+          Index = 1;
+          Old = pagesCount;
+      }
+
+      var $currPage = $("#Slide-" + Old);
+      var $nextPage = $("#Slide-" + Index);
+
+      var outClass = 'pt-page-fade';
+      var inClass = 'pt-page-moveFromLeft pt-page-ontop';
+
+      //outClass = 'pt-page-fade';
+      //inClass = 'pt-page-moveFromLeft pt-page-ontop';
+      //inClass = "pt-page-scaleUp";
+      //outClass = 'pt-page-rotateSidesOut';
+      //inClass = 'pt-page-rotateSidesIn pt-page-delay200';
+
+      //outClass = 'pt-page-rotateSlideOut';
+      //inClass = 'pt-page-rotateSlideIn';
+
+      //outClass = 'pt-page-rotateCubeBottomOut pt-page-ontop';
+      //inClass = 'pt-page-rotateCubeBottomIn';
+
+      
+
+      $currPage.addClass(outClass).on(animEndEventName, function () {
+          $currPage.off(animEndEventName);
+          endCurrPage = true;
+          if (endNextPage) {
+              onEndAnimation($currPage, $nextPage);
+          }
+      });
+
+      $nextPage.addClass(inClass).on(animEndEventName, function () {
+          $nextPage.off(animEndEventName);
+          endNextPage = true;
+          if (endCurrPage) {
+              onEndAnimation($currPage, $nextPage);
+          }
+      });
+      
+      if (!support) {
+          onEndAnimation($currPage, $nextPage);
+      }
+  }
+
 
   return {
     init: init,
