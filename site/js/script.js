@@ -37,6 +37,8 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
     window.mobile = false;
 }
 
+
+
 (function($) {
     $(function() {
        
@@ -46,8 +48,21 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
         }).on('blur', 'input', function() {
             $(this).closest('.control-group, form').removeClass('focus');
         });
- 
-       
+
+
+        //Scrolling sections that dosent have parallax
+        $(".projects-3 .control-btn, .content-10 .control-btn, .content-25 .control-btn, .content-4 .control-btn").on("click", function () {
+            $.scrollTo($(this).closest("section").next(), {
+                axis: "y",
+                duration: 500
+            });
+            return false;
+        });
+
+        // Parallax
+        $(".content-23").each(function () {
+            $(this).parallax('50%', 0.3, true);
+        });
 
         // features ani
         fadedEls($('.features').parent().find('h3'), 'h');
@@ -55,6 +70,7 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
             fadedEls($(this), 150);
         });     
         
+       
 
         // responsive
         $(window).resize(function() {
@@ -77,7 +93,32 @@ if (/Android|webOS|iPhone|iPad|iPod|BlackBerry/i.test(navigator.userAgent)) {
             }
         });
 
-        $(window).resize().scroll();
+
+        //Show text from right
+        (function (el) {
+            el.css('right', '-100%');
+
+            $(window).resize(function () {
+                if (!el.hasClass('ani-processed')) {
+                    el.data('scrollPos', el.offset().top - $(window).height() + el.outerHeight());
+                }
+            }).scroll(function () {
+                if (!el.hasClass('ani-processed')) {
+                    if ($(window).scrollTop() >= el.data('scrollPos')) {
+                        el.addClass('ani-processed');
+                        el.animate({
+                            right: 0
+                        }, 1000);
+                    }
+                }
+            });
+        })($('.content-12 > .container'));
 
     });
+
+    $(window).load(function () {
+        $('html').addClass('loaded');
+        $(window).resize().scroll();
+    });
+
 })(jQuery);
