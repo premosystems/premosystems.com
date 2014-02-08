@@ -1443,7 +1443,7 @@ section * {
   padding-bottom: 80px;
 }
 .header-1-sub .pt-page-1 .background {
-  background-image: url('../img/bg/iPhone.png');
+  background-image: url('../img/bg/iPhone@2x.png');
   opacity: 0.5;
   filter: alpha(opacity=50);
   background-position: 50% 30%;
@@ -1455,7 +1455,7 @@ section * {
   background-position: 50% 30%;
 }
 .header-1-sub .pt-page-3 .background {
-  background-image: url('../img/bg/glass.png');
+  background-image: url('../img/bg/glass@2x.png');
   opacity: 0.5;
   filter: alpha(opacity=50);
   background-position: 50% 30%;
@@ -1617,25 +1617,25 @@ section * {
   filter: alpha(opacity=10);
 }
 .content-23.custom-bg {
-  background-image: url('../img/bg/map-bg.png');
+  background-image: url('../img/bg/map-bg@2x.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .content-23.custom-bg-2 {
-  background-image: url('../img/bg/01.png');
+  background-image: url('../img/bg/01@2x.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .content-23.custom-bg-3 {
-  background-image: url('../img/bg/02.png');
+  background-image: url('../img/bg/02@2x.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
 .content-23.custom-bg-4 {
-  background-image: url('../img/bg/03.png');
+  background-image: url('../img/bg/03@2x.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
