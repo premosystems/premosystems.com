@@ -46,10 +46,10 @@ var PageTransitions = function() {
 
     if (page == 'prev') {
         page = $currPage.index() - 1;
-        SetMyIndex(false);
+        //SetMyIndex(false);
     } else if (typeof(page) != 'number') {
         page = $currPage.index() + 1;
-        SetMyIndex(true);
+        //SetMyIndex(true);
     }
 
     if (page < 0) {
@@ -386,11 +386,11 @@ var PageTransitions = function() {
   }
 
 
-    /* Code added */
-  var myTimer;
-  $(window).load(function () {
-      myTimer = setInterval(function () { MySlideHeader01() }, 8000);
-  });
+    /* Code added for a custom Slider */
+  //var myTimer;
+  //$(window).load(function () {
+  //    myTimer = setInterval(function () { MySlideHeader01() }, 8000);
+  //});
  
 
   var Index = 1;
@@ -456,6 +456,7 @@ var PageTransitions = function() {
           if (endNextPage) {
               onEndAnimation($currPage, $nextPage);
           }
+          
       });
 
       $nextPage.addClass(inClass).on(animEndEventName, function () {
@@ -464,11 +465,14 @@ var PageTransitions = function() {
           if (endCurrPage) {
               onEndAnimation($currPage, $nextPage);
           }
+          
       });
       
       if (!support) {
           onEndAnimation($currPage, $nextPage);
+          
       }
+
   }
 
 

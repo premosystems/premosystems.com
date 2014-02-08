@@ -1002,6 +1002,14 @@ section * {
 .header-1-sub .page-transitions .controls > *.control-next {
   left: 30px;
 }
+.header-1-sub .pt-page-1 .background {
+  background-image: url('../img/bg/iPhone@2x.png');
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  background-position: 50% 30%;
+}
+
+
 /* content */
 /**
  * Content 4 stylesheet  
@@ -1010,6 +1018,10 @@ section * {
   padding-top: 130px;
   padding-bottom: 120px;
   position: relative;
+}
+.content-4-items-container {
+    display: table;
+    text-align:center;
 }
 .content-4 h3 {
   font-size: 30px;
@@ -1034,6 +1046,9 @@ section * {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-weight: 500;
   text-transform: none;
+}
+.content-4 .features img {
+  margin-left:30%;
 }
 .content-4 .features p {
   font-size: 16px;
@@ -1215,7 +1230,7 @@ section * {
 .footer-6 .brand {
   display: inline-block;
   margin-bottom: 12px;
-  font-size: 25px;
+  font-size: 20px;
   font-weight: normal;
   color: #34495e;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1228,7 +1243,7 @@ section * {
 }
 .footer-6 h6 {
   margin: 0 0 20px;
-  font-size: 18px;
+  font-size: 17px;
   font-weight: normal;
   color: #34495e;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
@@ -1239,10 +1254,18 @@ section * {
     margin: 0 0 5px;
   }
 }
+.footer-6-nav-class {
+    border:1px solid black;
+    
+}
+.footer-6 nav .span2 {
+    float: left;
+    margin-left: 4%;
+}
 .footer-6 nav ul {
   list-style: none;
   margin: 0;
-  font-size: 16px;
+  font-size: 15px;
   font-weight: normal;
   color: inherit;
 }
@@ -1442,24 +1465,7 @@ section * {
   padding-top: 80px;
   padding-bottom: 80px;
 }
-.header-1-sub .pt-page-1 .background {
-  background-image: url('../img/bg/iPhone@2x.png');
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  background-position: 50% 30%;
-}
-.header-1-sub .pt-page-2 .background {
-  background-image: url('../img/bg/Android.png');
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  background-position: 50% 30%;
-}
-.header-1-sub .pt-page-3 .background {
-  background-image: url('../img/bg/glass@2x.png');
-  opacity: 0.5;
-  filter: alpha(opacity=50);
-  background-position: 50% 30%;
-}
+
 
 
 /* Background CSS  */
@@ -1629,7 +1635,7 @@ section * {
   background-attachment: fixed;
 }
 .content-23.custom-bg-3 {
-  background-image: url('../img/bg/02@2x.png');
+  background-image: url('../img/bg/glass@2x.png');
   background-position: 50% 50%;
   background-repeat: no-repeat;
   background-attachment: fixed;
